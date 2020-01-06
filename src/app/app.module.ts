@@ -3,13 +3,26 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCardModule, MatIconModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
 import { DifferenceComponent } from './components/difference/difference.component';
+import { AddDifferenceComponent } from './components/add-difference/add-difference.component';
+import {RouterModule} from '@angular/router';
+import {AppRoutingModule} from './app-routing.module';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DifferenceComponent
+    DifferenceComponent,
+    AddDifferenceComponent
   ],
   imports: [
     BrowserModule,
@@ -19,6 +32,11 @@ import { DifferenceComponent } from './components/difference/difference.componen
     MatIconModule,
     MatSidenavModule,
     MatCardModule,
+    MatFormFieldModule,
+    RouterModule,
+    AppRoutingModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

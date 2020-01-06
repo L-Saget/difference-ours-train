@@ -45,11 +45,11 @@ export class AppComponent implements OnInit {
     }
   }
 
-  random() {
-    //  this.router.navigateByUrl('random');
+  difference() {
+    //  this.router.navigateByUrl('difference');
   }
-  new() {
-    //  this.router.navigateByUrl('new');
+  add() {
+    //  this.router.navigateByUrl('add');
   }
   authenticated() {
     if (localStorage.getItem('LoggedIn') == null) {
