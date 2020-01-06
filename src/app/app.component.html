@@ -1,0 +1,73 @@
+<mat-toolbar
+  class="app-toolbar no-print mat-toolbar mat-primary mat-elevation-z6 mat-toolbar-multiple-rows"
+  color="primary"
+>
+  <mat-toolbar-row>
+    <button
+      (click)="sidenav.toggle()"
+      class="hamburger mat-button"
+      mat-button=""
+      title="Docs menu"
+    >
+      <span class="mat-button-wrapper"
+      ><mat-icon class="mat-icon" role="img" svgicon="menu" aria-hidden="true"
+      ><svg
+        focusable="false"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+        ></path></svg></mat-icon
+      ></span>
+      <div class="mat-button-ripple mat-ripple" matripple=""></div>
+      <div class="mat-button-focus-overlay"></div>
+    </button>
+    <button mat-button routerLink="/random">Random</button> &nbsp; &nbsp;
+    <button mat-button routerLink="/new">New</button> &nbsp; &nbsp;
+    {{title}}
+    <span class="example-spacer"></span>
+    <div fxShow="true" fxHide.lt-sm="true">
+      <button
+        *ngIf="!authenticated()"
+        mat-raised-button
+        value="Signup"
+        (click)="openDialog1()"
+      >
+        Signup
+        <span
+          class="glyphicon glyphicon-user"
+          aria-hidden="true"
+        ></span></button
+      >&nbsp;&nbsp;
+      <button
+        *ngIf="!authenticated()"
+        mat-raised-button
+        value="Login"
+        (click)="openDialog()"
+      >
+        Login
+        <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+      </button>
+      <button
+        *ngIf="authenticated()"
+        mat-raised-button
+        value="Logout"
+        (click)="logout()"
+      >
+        Logout
+        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav [mode]="push"> Sidenav content<br> heyyyyyyyy </mat-sidenav>
+
+  <mat-sidenav-content class="center">
+    douze
+
+     <app-difference></app-difference>
+  </mat-sidenav-content>
+</mat-sidenav-container>
