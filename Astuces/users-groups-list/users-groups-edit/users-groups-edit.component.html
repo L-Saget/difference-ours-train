@@ -1,0 +1,68 @@
+<mat-card >
+  <mat-card-content >
+
+    <div fxLayout="row wrap" >
+      <form fxLayout="row" fxLayoutGap="1%" [formGroup]="usersGroupForm" (ngSubmit)="onSubmit()">
+        <div fxFlex="auto">
+          <mat-card>
+            <mat-card-title>Informations du groupe :</mat-card-title>
+          </mat-card>
+          <mat-card>
+            <mat-form-field>
+              <mat-label class="size">Nom</mat-label>
+              <input matInput type="text" formControlName="name">
+            </mat-form-field>
+          </mat-card>
+
+          <mat-card>
+            <mat-form-field>
+              <mat-label class="size">Description</mat-label>
+              <input matInput type="text"  formControlName="description" placeholder="">
+            </mat-form-field>
+          </mat-card>
+
+          <mat-card>
+            <button mat-raised-button fxFlex="100%" class="open_dark_blue txt-color" type="submit" (click)="onAssociate()">
+              <mat-icon>add</mat-icon>
+              Gérer les utilisateurs de ce groupe
+            </button>
+          </mat-card>
+
+          <mat-card>
+            <mat-icon class="icon-align">person</mat-icon>
+            <span class="size"><strong> Utilisateurs(s) :</strong>
+            <mat-list *ngFor="let user of userList">
+              <a href="http://localhost:4200/users/id/{{user?.id}}">{{user?.firstName}} {{user?.lastName}}</a>
+            </mat-list>
+          </span>
+          </mat-card>
+
+
+
+          <mat-card>
+            <mat-form-field>
+              <mat-label class="size">ID</mat-label>
+              <input matInput placeholder="{{usersGroup?.id}}" value="{{usersGroup?.id}}" disabled>
+            </mat-form-field>
+          </mat-card>
+
+
+        </div>
+
+        <div fxFlex="auto" >
+          <mat-card>
+            <button mat-raised-button fxFlex="100%" class="open_dark_blue txt-color" type="submit" [disabled]="!usersGroupForm.valid">
+              <mat-icon>done</mat-icon>
+              Valider
+            </button>
+          </mat-card>
+          <mat-card>
+            <button mat-raised-button type="button" color="warn" (click)="onDelete()"> <mat-icon>warning</mat-icon><mat-icon>delete_forever</mat-icon>Supprimer le groupe<mat-icon>delete_forever</mat-icon><mat-icon>warning</mat-icon></button>
+          </mat-card>
+        </div>
+      </form>
+
+
+    </div>
+  </mat-card-content>
+</mat-card>

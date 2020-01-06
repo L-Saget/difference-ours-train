@@ -1,0 +1,95 @@
+<mat-card *ngIf="isAuthorized">
+  <mat-card-content >
+
+    <div fxLayout="row wrap" >
+      <form fxLayout="row" fxLayoutGap="1%" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div fxFlex="auto">
+          <mat-card>
+            <mat-card-title>Informations du compte :</mat-card-title>
+          </mat-card>
+          <mat-card>
+            <mat-form-field>
+              <mat-label class="size">Prénom</mat-label>
+              <input matInput type="text" formControlName="firstName">
+            </mat-form-field>
+          </mat-card>
+
+          <mat-card>
+            <mat-form-field>
+              <mat-label class="size">Nom</mat-label>
+              <input matInput type="text"  formControlName="lastName" placeholder="">
+            </mat-form-field>
+          </mat-card>
+
+          <mat-card>
+            <mat-form-field>
+              <mat-label class="size">ID</mat-label>
+              <input matInput placeholder="{{user?.id}}" value="{{user?.id}}" disabled>
+            </mat-form-field>
+          </mat-card>
+
+          <mat-card>
+            <mat-form-field>
+              <mat-icon matPrefix class="icon-align">mail</mat-icon>
+              <mat-label class="size">Email</mat-label>
+              <input matInput type="email"  formControlName="email" >
+            </mat-form-field>
+          </mat-card>
+
+          <mat-card>
+            <mat-form-field>
+              <mat-icon matPrefix class="icon-align">phone</mat-icon>
+              <mat-label class="size">Téléphone</mat-label>
+              <input matInput type="text" formControlName="phone" >
+            </mat-form-field>
+          </mat-card>
+
+          <mat-card>
+            <mat-icon class="icon-align">group_work</mat-icon>
+            <span class="size"><strong> Groupe(s) :</strong>
+            <mat-list *ngFor="let usersGroup of usersGroupList">
+              <a href="http://localhost:4200/group-user/id/{{usersGroup?.id}}">{{usersGroup?.name}}</a>
+            </mat-list>
+          </span>
+          </mat-card>
+
+        </div>
+
+        <div fxFlex="auto" *ngIf="isAdmin">
+          <mat-card>
+            <span class="size">Activation de l'utilisateur : </span>
+            <mat-slide-toggle  formControlName="enable"></mat-slide-toggle>
+          </mat-card>
+
+
+
+          <mat-card>
+            <span class="size">Permission : </span>
+            <select formControlName="userType">
+              <option value="0">Utilisateur</option>
+              <option value="1">Gestionnaire</option>
+              <option value="2">Administrateur</option>
+              <option value="3">Super-Administrateur</option>
+            </select>
+          </mat-card>
+        </div>
+        <div fxFlex="auto" >
+          <mat-card>
+            <button mat-raised-button fxFlex="100%" class="open_dark_blue txt-color" type="submit" [disabled]="!userForm.valid">
+              <mat-icon>done</mat-icon>
+              Valider
+            </button>
+          </mat-card>
+          <mat-card *ngIf="isAdmin">
+            <button mat-raised-button fxFlex="100%" type="button" class="disconnect txt-color" (click)="onDisconnect()"> <mat-icon>clear</mat-icon>Déconnecter l'utilisateur</button>
+          </mat-card>
+          <mat-card *ngIf="isAdmin">
+            <button mat-raised-button type="button" color="warn" (click)="onDelete()"> <mat-icon>warning</mat-icon><mat-icon>delete_forever</mat-icon>Supprimer l'utilisateur<mat-icon>delete_forever</mat-icon><mat-icon>warning</mat-icon></button>
+          </mat-card>
+        </div>
+      </form>
+
+
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,67 @@
+
+<mat-card>
+  <mat-card-title>
+    <div>
+      Associer des utilisateurs au groupe : {{usersGroupName}}
+    </div>
+  </mat-card-title>
+</mat-card>
+
+
+
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtre">
+</mat-form-field>
+
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="checked">
+      <mat-header-cell *matHeaderCellDef>Appartenance au groupe</mat-header-cell>
+      <mat-cell *matCellDef="let usersList">
+        <mat-checkbox [(ngModel)]="usersList.checked" ></mat-checkbox>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+      <mat-cell *matCellDef="let usersList"> {{usersList.id}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="firstname">
+      <mat-header-cell *matHeaderCellDef> Prénom </mat-header-cell>
+      <mat-cell *matCellDef="let usersList"> {{usersList.firstName}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="lastname">
+      <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
+      <mat-cell *matCellDef="let usersList"> {{usersList.lastName}} </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" ></mat-row>
+
+  </mat-table>
+</div>
+
+
+<mat-card>
+  <div fxFlex="40%"></div>
+  <button mat-raised-button fxFlex="auto" class="open_dark_blue txt-color align" (click)="onConfirm()">
+    <mat-icon>done</mat-icon>
+    Valider
+  </button>
+
+  <div fxFlex="40%"></div>
+</mat-card>
+
+<!--Selected: {{ devicesList | json }}    &lt;!&ndash;DEBUG ONLY &ndash;&gt;-->
+

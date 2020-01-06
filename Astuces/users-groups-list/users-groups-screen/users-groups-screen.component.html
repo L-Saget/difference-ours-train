@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-title>
+    <div>
+      {{usersGroup?.name}}
+    </div>
+  </mat-card-title>
+</mat-card>
+<!--------------------------------------------------------------------------------------------------------------------->
+<mat-tab-group>
+  <mat-tab label="Détails">
+    <app-users-groups-details></app-users-groups-details>
+  </mat-tab>
+  <!--------------------------------------------------------------------------------------------------------------------->
+  <mat-tab label="Éditer"> <app-users-groups-edit></app-users-groups-edit></mat-tab>
+</mat-tab-group>
+
+
+<button mat-fab style=" top: auto;
+right: 20px;
+bottom: 20px;
+left: auto;
+position: fixed; background:#00578D;" (click)="onGoBack()">
+  <mat-icon style="color: white">arrow_back</mat-icon>
+</button>

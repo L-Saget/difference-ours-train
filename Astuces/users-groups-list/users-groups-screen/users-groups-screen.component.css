@@ -1,0 +1,9 @@
+.size {
+  font-size: 1.2em;
+}
+
+.icon-align {
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}

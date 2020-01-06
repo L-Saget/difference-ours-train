@@ -1,0 +1,94 @@
+
+.card{
+  flex-direction: column;
+  margin: 10px auto;
+  height: 50%;
+  width: 20%;
+  display: flex;
+  /*justify-content: center;*/
+  align-items: center;
+}
+
+.main-div{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+::ng-deep .mat-card-subtitle{
+  color: #00578D !important;
+}
+
+::ng-deep .mat-form-field-label {
+  /*change color of label*/
+  color: #00578D !important;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #1AACE3 !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #00578D !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: #1AACE3 !important;
+}
+
+.form-control
+{
+  color: #1AACE3;
+}
+
+.info {
+  color: black;
+  max-width: 40%;
+  margin: 2%;
+  order: 3;
+  flex-grow: 1;
+}
+
+.logo-margin {
+  /*align-self: center;*/
+  /*order: 0;*/
+  flex-grow: 1;
+  /*unicorn mode*/
+  /*border: 10px solid;*/
+  /*border-image: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) 1;*/
+}
+
+.content-login {
+  color: #00578D;
+/*  order: 1;*/
+/*  flex-grow: 1;*/
+}
+
+img.resize {
+  max-width:100%;
+  max-height:130%;
+}
+
+.background-image {
+  position: fixed;
+  left: 0;
+  right: 0;
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background: url("src/assets/map2.png") no-repeat center;
+  background-size: cover;
+
+  -webkit-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+}
+
+
+

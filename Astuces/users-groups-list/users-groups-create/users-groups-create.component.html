@@ -1,0 +1,56 @@
+<mat-card fxLayout="column" fxLayoutGap="2%">
+  <mat-card>
+    <mat-card-title>Création d'un nouveau groupe d'utilisateur</mat-card-title>
+  </mat-card>
+  <mat-card-content>
+
+    <div fxLayout="row" fxLayoutGap="1%">
+      <form fxLayout="row" fxLayoutGap="1%" [formGroup]="usersGroupForm" (ngSubmit)="onSubmit()">
+        <div>
+          <mat-card>
+            <mat-card-title>Informations du groupe :</mat-card-title>
+          </mat-card>
+
+          <mat-card>
+            <mat-form-field>
+              <mat-icon matPrefix class="icon-align">group</mat-icon>
+              <mat-label class="size"> Nom</mat-label>
+              <input matInput type="name"  formControlName="name" >
+            </mat-form-field>
+          </mat-card>
+
+          <mat-card>
+            <mat-form-field>
+              <mat-icon matPrefix class="icon-align">description</mat-icon>
+              <mat-label class="size"> Description</mat-label>
+              <input matInput type="description"  formControlName="description" >
+            </mat-form-field>
+          </mat-card>
+
+
+        </div>
+
+        <div>
+          <mat-card>
+            <button mat-raised-button fxFlex="100%" class="open_dark_blue txt-color" type="submit" [disabled]="!usersGroupForm.valid">
+              <mat-icon>done</mat-icon>
+              Créer le groupe
+            </button>
+          </mat-card>
+        </div>
+      </form>
+
+
+    </div>
+  </mat-card-content>
+</mat-card>
+
+
+<button mat-fab style=" top: auto;
+right: 20px;
+bottom: 20px;
+left: auto;
+position: fixed; background:#00578D;" (click)="onGoBack()">
+  <mat-icon style="color: white">arrow_back</mat-icon>
+</button>
+

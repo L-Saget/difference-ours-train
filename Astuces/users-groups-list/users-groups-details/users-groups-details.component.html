@@ -1,0 +1,49 @@
+<mat-card>
+
+  <mat-card-content>
+    <div fxLayout="row" fxLayoutGap="1%">
+      <mat-list>
+        <mat-card>
+
+          <mat-card-title>Informations du groupe d'utilisateur :</mat-card-title>
+        </mat-card>
+        <mat-card>
+          <mat-icon class="icon-align">label_important</mat-icon>
+          <span class="size"><strong>ID : </strong>{{usersGroup?.id}}</span>
+        </mat-card>
+
+        <mat-card>
+          <mat-icon class="icon-align">group</mat-icon>
+          <span class="size"><strong> Nom : </strong> {{usersGroup?.name}}</span>
+        </mat-card>
+
+        <mat-card>
+          <mat-icon class="icon-align">description</mat-icon>
+          <span class="size"><strong> Description : </strong> {{usersGroup?.description}}</span>
+        </mat-card>
+
+        <mat-card>
+          <mat-icon class="icon-align">person</mat-icon>
+          <span class="size"><strong> Utilisateur(s) :</strong>
+            <mat-list  *ngFor="let user of userList" class="list-align">
+              <a href="http://localhost:4200/users/id/{{user?.id}}">{{user?.firstName}} {{user?.lastName}}</a>
+            </mat-list>
+          </span>
+        </mat-card>
+
+        <mat-card>
+          <mat-icon class="icon-align">date_range</mat-icon>
+          <span class="size"><strong> Création : </strong> {{usersGroup?.createdAt}}</span>
+        </mat-card>
+        <mat-card>
+          <mat-icon class="icon-align">update</mat-icon>
+          <span class="size"><strong> Mis à jour : </strong> {{usersGroup?.updatedAt}}</span>
+        </mat-card>
+      </mat-list>
+      <mat-list>
+
+
+      </mat-list>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,26 @@
+.size {
+  font-size: 1.2em;
+}
+
+.icon-align {
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+.open_dark_blue {
+  background: #00578e;
+}
+
+.disconnect {
+  background: #f18e00;
+}
+
+.txt-color{
+  color: #FFFFFF
+}
+
+.example-additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+}

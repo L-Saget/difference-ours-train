@@ -1,0 +1,61 @@
+<mat-card>
+  <mat-card-content>
+    <div fxLayout="row" fxLayoutGap="1%">
+      <mat-list>
+        <mat-card>
+          <mat-card-title>Informations du compte :</mat-card-title>
+        </mat-card>
+        <mat-card>
+          <span class="size"><strong>ID : </strong>{{user?.id}}</span>
+        </mat-card>
+
+        <mat-card>
+          <mat-icon class="icon-align">mail</mat-icon>
+          <span class="size"><strong> Email : </strong> {{user?.email}}</span>
+        </mat-card>
+
+        <mat-card>
+          <mat-icon class="icon-align">phone</mat-icon>
+          <span class="size"><strong> Téléphone : </strong> {{user?.phone}}</span>
+        </mat-card>
+
+        <mat-card>
+          <mat-icon class="icon-align">group_work</mat-icon>
+          <span class="size"><strong> Groupe(s) : </strong>
+            <mat-list *ngFor="let usersGroup of usersGroupList" class="list-align">
+              <a href="http://localhost:4200/group-user/id/{{usersGroup?.id}}">{{usersGroup?.name}}</a>
+            </mat-list>
+          </span>
+        </mat-card>
+
+        <mat-card>
+          <div *ngIf="user?.enable; then userIsEnabled else userIsDisabled"></div>
+          <ng-template #userIsEnabled><mat-icon class="icon-align">check_box</mat-icon><span class="size"><strong> Status : </strong>Activé</span></ng-template>
+          <ng-template #userIsDisabled><mat-icon class="icon-align">check_box_outline_blank</mat-icon><span class="size"><strong> Status : </strong>Désactivé</span></ng-template>
+        </mat-card>
+
+        <mat-card>
+          <div [ngSwitch]="user?.type">
+            <span *ngSwitchCase="'0'"><mat-icon class="icon-align">indeterminate_check_box</mat-icon><span class="size"><strong> Permission : </strong>Utilisateur</span></span>
+            <span *ngSwitchCase="'1'"><mat-icon class="icon-align">looks_one</mat-icon><span class="size"><strong> Permission : </strong>Gestionnaire</span></span>
+            <span *ngSwitchCase="'2'"><mat-icon class="icon-align">looks_two</mat-icon><span class="size"><strong> Permission : </strong>Administrateur</span></span>
+            <span *ngSwitchCase="'3'"><mat-icon class="icon-align">looks_3</mat-icon><span class="size"><strong> Permission : </strong>Super-Administrateur</span></span>
+          </div>
+        </mat-card>
+
+        <mat-card>
+          <mat-icon class="icon-align">date_range</mat-icon>
+          <span class="size"><strong> Création : </strong> {{user?.createdAt}}</span>
+        </mat-card>
+        <mat-card>
+          <mat-icon class="icon-align">update</mat-icon>
+          <span class="size"><strong> Mis à jour : </strong> {{user?.updatedAt}}</span>
+        </mat-card>
+      </mat-list>
+      <mat-list>
+
+<!--        TODO: Ajouter la liste des groupes de l'utilisateur-->
+      </mat-list>
+    </div>
+  </mat-card-content>
+</mat-card>
