@@ -18,6 +18,7 @@ import { AddDifferenceComponent } from './components/add-difference/add-differen
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatInputModule,
     MatSnackBarModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

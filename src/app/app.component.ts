@@ -24,11 +24,11 @@ export class AppComponent implements OnInit {
   mode = new FormControl('push');
   loading = true;
 
-  // constructor(public dialog: MatDialog, private router: Router) {
-  //   router.events.subscribe((event: RouterEvent) => {
-  //     this.navigationInterceptor(event);
-  //   });
-  // }
+  constructor(private router: Router) {
+    // router.events.subscribe((event: RouterEvent) => {
+    //   this.navigationInterceptor(event);
+    // });
+  }
   navigationInterceptor(event: RouterEvent): void {
     if (event instanceof NavigationStart) {
       this.loading = true;
@@ -46,7 +46,10 @@ export class AppComponent implements OnInit {
   }
 
   difference() {
-    //  this.router.navigateByUrl('difference');
+    this.router.navigateByUrl('test')
+      .then(() => {
+        window.location.reload();
+      });
   }
   add() {
     //  this.router.navigateByUrl('add');

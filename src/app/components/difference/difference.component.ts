@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Difference, DifferencesService} from '../../services/differences.service';
 
 @Component({
   selector: 'app-difference',
@@ -7,16 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class DifferenceComponent implements OnInit {
-  public difference = "";
+  newDifference: Difference;
 
-
-  constructor() { }
+  constructor(private api: DifferencesService) { }
 
   ngOnInit() {
-    this.difference = this.getDifference();
-  }
-
-  public getDifference() {
-    return('Une différence drole !');
+     this.api.getRandomDiff().subscribe( x => {
+       console.log(x);
+       console.log(x.diff);
+       this.newDifference = x;
+       // this.newDifference.autor = x.autor;
+       // this.newDifference.diff = x.diff;
+     });
   }
 }
