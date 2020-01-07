@@ -16,3 +16,8 @@
   left: 0;
   right: 0;
 }
+
+.form{
+  display: flex;
+  flex-direction: column;
+}

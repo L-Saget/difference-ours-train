@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, Validators} from '@angular/forms';
+import {MatSnackBar} from '@angular/material';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-difference',
@@ -8,33 +10,32 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class AddDifferenceComponent implements OnInit {
 
-  formGroup: FormGroup;
-  post: any = '';
+  constructor(private formBuilder: FormBuilder, private snackBar: MatSnackBar, public router: Router) { }
 
-  constructor(private formBuilder: FormBuilder) { }
+  diffForm = this.formBuilder.group({
+    diff: new FormControl(null, [Validators.required, Validators.maxLength(2048), Validators.minLength(6)]),
+    autor: new FormControl(null, [Validators.maxLength(128)]),
+  });
 
 
   ngOnInit() {
-    this.createForm();
-  }
-
-  createForm() {
-    this.formGroup = this.formBuilder.group({
-      'diff': [null, [Validators.required, Validators.maxLength(2048), Validators.minLength(6)]],
-      'autor': [null, Validators.maxLength(128)],
-    });
   }
 
   getErrorMessage() {
-    return this.formGroup.diff.hasError('required') ? 'You must enter a difference' :
-      this.formGroup.diff.hasError('maxLength') ? 'Too long, raconte pas ta vie andouille' :
-      this.formGroup.autor.hasError('maxLength') ? 'Too long' :
-      this.formGroup.diff.hasError('minLength') ? 'Too short' :
+    return this.diffForm.controls.diff.hasError('required') ? 'You must enter a difference' :
+      this.diffForm.controls.diff.hasError('maxLength') ? 'Too long, raconte pas ta vie andouille' :
+        this.diffForm.controls.autor.hasError('maxLength') ? 'Too long' :
+        this.diffForm.controls.diff.hasError('minLength') ? 'Too short' :
         '';
   }
 
-  onSubmit(post) {
-    console.log(post);
+  onSubmit() {
+    console.log(this.diffForm.value);
+    const message = 'Vous avez bien créé la différence : ' + this.diffForm.value.diff;
+    this.snackBar.open(message, 'Ok', {
+      duration: 2000,
+    });
+    this.router.navigateByUrl('difference');
   }
 
 }

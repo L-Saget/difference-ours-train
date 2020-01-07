@@ -10,6 +10,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatSidenavModule,
+  MatSnackBarModule,
   MatToolbarModule
 } from '@angular/material';
 import { DifferenceComponent } from './components/difference/difference.component';
@@ -36,6 +37,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     RouterModule,
     AppRoutingModule,
     MatInputModule,
+    MatSnackBarModule,
     ReactiveFormsModule,
   ],
   providers: [],

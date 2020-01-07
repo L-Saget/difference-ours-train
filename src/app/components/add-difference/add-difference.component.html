@@ -5,25 +5,24 @@
     <mat-card-header> Votre difference :</mat-card-header>
 
 
-    <div class="container" *ngIf="!post; else forminfo" novalidate>
-      <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
-
-        <mat-form-field class="form-element">
-          <input matInput type="text" placeholder="Enter your difference" formControlName="diff" required>
-          <mat-error *ngIf="newDifference.diff.invalid">{{getErrorMessage()}}</mat-error>
-        </mat-form-field>
-
-        <mat-form-field class="form-element">
-          <input matInput type="text" placeholder="Enter your autor name (can be blank)" formControlName=autor" required>
-          <mat-error *ngIf="newDifference.autor.invalid">{{getErrorMessage()}}</mat-error>
-        </mat-form-field>
-
-        <div class="form-element">
-          <button mat-button type="submit" [disabled]="!formGroup.valid">SUBMIT</button>
+    <div class="container">
+      <form [formGroup]="diffForm" (ngSubmit)="onSubmit()">
+        <div>
+            <mat-form-field class="form">
+              <label>
+                <input matInput type="text" placeholder="Enter your difference" formControlName="diff" required/>
+              </label>
+              <mat-error *ngIf="diffForm.controls.diff.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="form">
+                <input matInput type="text" placeholder="Enter your autor name (can be blank)" formControlName="autor"/>
+              <mat-error *ngIf="diffForm.controls.autor.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+          <div class="form-element">
+            <button mat-raised-button type="submit" [disabled]="!diffForm.valid">SUBMIT</button>
+          </div>
         </div>
-
       </form>
     </div>
-
   </mat-card>
 </mat-card>
