@@ -37,6 +37,14 @@ export class AddDifferenceComponent implements OnInit {
     console.log(this.diffForm.value);
     this.newDifference.diff = this.diffForm.value.diff;
     this.newDifference.autor = this.diffForm.value.autor;
+	if (this.newDifference.autor == NaN)
+	{
+		this.newDifference.autor = "00000000"
+	}
+	if (this.newDifference.autor == null)
+	{
+		this.newDifference.autor = "00000000"
+	}
 
 
     this.api.createDiff(this.newDifference).subscribe( x => {
