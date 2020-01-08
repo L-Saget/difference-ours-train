@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   endpoints: {
-    differences: 'http://localhost:3333/differences',
+    differences: 'https://back-adonis.herokuapp.com/differences',
   }
 };
 
