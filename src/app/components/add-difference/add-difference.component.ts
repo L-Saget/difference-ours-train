@@ -30,6 +30,7 @@ export class AddDifferenceComponent implements OnInit {
       this.diffForm.controls.diff.hasError('maxLength') ? 'Too long, raconte pas ta vie andouille' :
         this.diffForm.controls.autor.hasError('maxLength') ? 'Too long' :
         this.diffForm.controls.diff.hasError('minLength') ? 'Too short' :
+		this.diffForm.controls.autor.hasError('required') ? 'You must enter a name' :
         '';
   }
 
