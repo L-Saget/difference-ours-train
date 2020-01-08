@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  endpoints: {
+    differences: 'https://back-adonis.herokuapp.com/differences',
+  }
 };
