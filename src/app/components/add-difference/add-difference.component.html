@@ -15,7 +15,7 @@
               <mat-error *ngIf="diffForm.controls.diff.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
             <mat-form-field class="form">
-                <input matInput type="text" placeholder="Enter your autor name (can't be blank)" formControlName="autor"/>
+                <input matInput type="text" placeholder="Enter your autor name (can't be blank)" formControlName="autor" required/>
               <mat-error *ngIf="diffForm.controls.autor.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
           <div class="form-element">

@@ -16,7 +16,7 @@ export class AddDifferenceComponent implements OnInit {
 
   diffForm = this.formBuilder.group({
     diff: new FormControl(null, [Validators.required, Validators.maxLength(2048), Validators.minLength(6)]),
-    autor: new FormControl(null, [Validators.maxLength(128)]),
+    autor: new FormControl(null, [Validators.required, Validators.maxLength(128)]),
   });
 
 
